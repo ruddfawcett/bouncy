@@ -20,7 +20,7 @@ void draw() {
     ball.display();
   }
   
-  world.updateCounter();
+  world.update();
 }
 
 void mouseClicked() {

@@ -15,25 +15,25 @@ class World {
  }
 
  void addBall(float mouseX, float mouseY) {
-  float randWidth = 40 + random(40);
+  float radius = 20 + random(40);
   
-  if (mouseX - randWidth < 0) {
-    mouseX = randWidth/2;
+  if (mouseX - radius < 0) {
+    mouseX = radius;
   }
   
-  if (mouseX + randWidth/2 > width) {
-    mouseX = width - randWidth/2;
+  if (mouseX + radius > width) {
+    mouseX = width - radius;
   }
   
-  if (mouseY - randWidth < 0) {
-    mouseY = randWidth/2;
+  if (mouseY - radius < 0) {
+    mouseY = radius;
   }
   
-  if (mouseY + randWidth/2 > height-counterHeight) {
-    mouseY = (height-counterHeight) - randWidth/2;
+  if (mouseY + radius > height-counterHeight) {
+    mouseY = (height-counterHeight) - radius;
   }
   
-  Ball ball = new Ball(mouseX, mouseY, randWidth);
+  Ball ball = new Ball(mouseX, mouseY, radius);
 
   balls.add(ball);
  }
@@ -70,18 +70,17 @@ class World {
    balls.remove(index);
  }
 
- void updateCounter() {
+ void update() {
   fill(color(255,255,255));
   rect(0,height-(counterHeight), width, counterHeight);
   
-  
-  fill(0);
-  textSize(14);
-  text("Created by Rudd and Ally", width-190, 600);
-
   fill(0);
   textSize(14);
   text("Balls: "+balls.size()+", Wall Hits: "+wallHits, 10, 600);
+  text("Created by Rudd and Ally", width-190, 600);
+  String mode = deleteMode ? "ON" : "OFF";
+  String modeString = "Delete Mode: "+mode;
+  text(modeString, (width-textWidth(modeString))/2, 600);
  }
 
  void setDeleteMode(boolean mode) {
