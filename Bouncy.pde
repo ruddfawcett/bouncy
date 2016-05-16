@@ -1,18 +1,18 @@
 /**
  * Bouncy HW #2:
- * This program creates balls of a random size, color, 
+ * This program creates balls of a random size, color,
  * acceleration, and velocity wherever the mouse is clicked.
- * When a ball hits the perimeter of the window, the ball 
+ * When a ball hits the perimeter of the window, the ball
  * bounces off at the opposite angle and a sound is played.
  * If the shift key is pressed, mouse clicks directly on a
  * ball (not on the bounding box) delete that ball.
- * 
+ *
  * Authors: Rudd Fawcett and Ally Klionsky
  * Course: Period 3 AP CS, Ms. Litvin
  * Due: 5/15/16
  */
 
-//Imports sound library
+// Imports sound library
 import processing.sound.*;
 
 int counterHeight = 50;
@@ -40,7 +40,7 @@ void draw() {
     ball.move();
     ball.display();
   }
-  
+
   world.update();
 }
 
@@ -53,7 +53,7 @@ void mouseClicked() {
   if (world.inDeleteMode()) {
     int ballAt = world.ballAt(mouseX, mouseY);
     if (ballAt != -1) {
-      world.destoryBallAt(ballAt);
+      world.destroyBallAt(ballAt);
     }
   }
   else {

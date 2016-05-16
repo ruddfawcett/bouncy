@@ -1,13 +1,13 @@
 /**
  * Processing HW #2: Ball Class
- * This class creates balls of a random size, color, 
+ * This class creates balls of a random size, color,
  * acceleration, and velocity on wherever the mouse is clicked.
- * 
+ *
  * Authors: Rudd Fawcett and Ally Klionsky
  * Course: Period 3 AP CS, Ms. Litvin
  * Due: 5/15/16
  */
- 
+
 class Ball {
   color fill;
   float radius;
@@ -37,14 +37,14 @@ class Ball {
   void move() {
     add(location, velocity);
 
-    //??
+    // If the ball hits the edge of the screen (left and right).
     if ((location.x > width-radius) || (location.x < radius)) {
      velocity.x = velocity.x * -1;
      boing.play();
      world.hitWall();
     }
 
-    //???
+    // If the ball hits the edge of the screen (top and bottom).
     if ((location.y > (height-counterHeight)-(radius)) || (location.y < radius)) {
      velocity.y = velocity.y * -1;
      boing.play();
@@ -58,16 +58,16 @@ class Ball {
   float getX() {
     return location.x;
   }
-  
+
   /**
    * Returns location of y value.
    */
   float getY() {
     return location.y;
   }
-  
+
   /**
-   * ???
+   * Adds two vectors together.
    */
    void add(PVector a, PVector b) {
      a.y = a.y + b.y;
@@ -75,7 +75,7 @@ class Ball {
    }
 
   /**
-   * ???
+   * Multiples a vector by a random number.
    */
    void mult(PVector a, float random) {
      a.x = a.x * random;
